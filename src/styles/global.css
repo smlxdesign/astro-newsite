@@ -1,7 +1,8 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@plugin '@tailwindcss/typography';
 
 @theme {
-	--default-font-family: 'DM Sans', sans-serif, system-ui;
+	--default-font-family: "DM Sans", sans-serif, system-ui;
 	--spacing-side: clamp(2rem, -0.632rem + 10.526vw, 12rem);
 }
 
