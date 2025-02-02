@@ -1,0 +1,16 @@
+@layer global, elements, components, utilities;
+
+@layer global {
+	body {
+		font-family: 'Inter', sans-serif;
+	}
+}
+
+@layer elements {
+}
+
+@layer components {
+}
+
+@layer utilities {
+}
