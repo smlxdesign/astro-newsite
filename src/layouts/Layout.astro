@@ -1,3 +1,8 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -16,7 +21,8 @@
 			rel="stylesheet"
 		/>
 	</head>
-	<body>
+	<body class="text-neutral-800">
+		<Header />
 		<slot />
 	</body>
 </html>

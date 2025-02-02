@@ -1,16 +1,16 @@
-@layer global, elements, components, utilities;
+@import 'tailwindcss';
 
-@layer global {
-	body {
-		font-family: 'Inter', sans-serif;
-	}
-}
-
-@layer elements {
+@theme {
+	--default-font-family: 'DM Sans', sans-serif, system-ui;
+	--spacing-side: clamp(2rem, -0.632rem + 10.526vw, 12rem);
 }
 
 @layer components {
-}
+	.button {
+		@apply bg-blue-100 text-blue-700 w-fit py-3 px-6 rounded font-medium cursor-pointer hover:bg-blue-200 hover:text-blue-800 transition-all hover:transition-all;
+	}
 
-@layer utilities {
+	.button.primary {
+		@apply bg-blue-700 text-white hover:bg-blue-800 hover:text-blue-50 font-bold;
+	}
 }
