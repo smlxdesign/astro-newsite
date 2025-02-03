@@ -1,48 +1,64 @@
-# Astro Starter Kit: Basics
+# Website
 
-```sh
-npm create astro@latest -- --template basics
+My new site built with [Astro](https://astro.build)!
+
+## Why Astro?
+
+I chose Astro since I saw it getting recommended alot. I also noticed that it was way easier to customize than other Static Site generators, such as Hugo and Jekyll.
+
+Hugo was at first my choice for this project, but i quickly noticed that the preconfigured file structure was not going to float my boat. It was unnecesarily split up and trying to change the color of a nav link quickly turned into a week task.
+
+## Building from source
+
+Start off by cloning the repo locally by running this in your preffered shell:
+
+```shell
+git clone https://github.com/smlxdesign/website smlxdesign-website
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Don't forget to `cd` into the correct folder **before** pasting this command.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Then after cloning, make sure to install the dependencies via pnpm.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```shell
+pnpm install # Installing the deps
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## Contributing
 
-## 🧞 Commands
+Now, when you have a local copy of the site, you can start editing away. But make sure to follow our [contributing guidelines](CONTRIBUTING.md) as well as the [contributor covenant code of conduct](code_of_conduct.md).
 
-All commands are run from the root of the project, from a terminal:
+<!-- TODO: Expand the Contributing section -->
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## License
 
-## 👀 Want to learn more?
+This site is licensed under two licenses, MIT for the code, and CC BY-SA 4.0 for the blog articles and other content i post.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### MIT
+
+The site design and the code behind the scenes is licensed under the widely used MIT License. In short, it means the following:
+
+- You can use, modify, redistribute the code, even for commercial use.
+- You can change license or use it in close-source software.
+- But a copy of the license must be included with the licensed materal.
+
+This is NOT legal advice and if you have any questions, you should probably consult a lawyer.
+
+You can read the full license in [LICENSE_MIT](LICENSE_MIT).
+
+### Creative Commons Attribution-ShareAlike 4.0 International
+
+The site content and blog posts is licensed under the _Creative Commons Attribution-ShareAlike 4.0 International_ license. In short, that means for you:
+
+- Redistribute and/or transform the original work.
+- Use it for commercial purposes too!
+
+But, you have to
+
+- credit me (SMLX Design) as the original creator. You should also provide a link to my work, and specify if changes were made.
+- You have to make it clear that I do not endorse or support your adaption.
+- Keep the same CC BY-SA 4.0 License!
+
+This is NOT legal advice and if you have any questions, you should probably consult a lawyer.
+
+Read the full license in [LICENSE_CC-BY-SA-4.0](LICENSE_CC-BY-SA-4.0).
