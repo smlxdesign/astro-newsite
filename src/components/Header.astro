@@ -1,19 +1,49 @@
-<!-- TODO: Make mobile friendly -->
 <header
-	class="w-full fixed py-6 px-side flex flex-row bg-blue-50/50 backdrop-blur-lg justify-between items-center"
+	class="w-full fixed py-6 px-side flex flex-row bg-blue-50/50 backdrop-blur-lg justify-between items-top"
 >
 	<a class="font-bold text-lg text-blue-700" href="/">SMLX Design</a>
-	<nav>
-		<ul class="flex flex-row gap-8">
+	<nav class="flex flex-col gap-4 items-end md:h-fit">
+		<button class="md:hidden">
+			<i class="ph ph-list ph-bold text-2xl hover:text-blue-700 cursor-pointer"
+			></i>
+			<i
+				class="ph ph-x ph-bold text-2xl hidden hover:text-blue-700 cursor-pointer"
+			></i>
+		</button>
+		<ul class="flex-col md:flex md:flex-row gap-8 hidden">
 			<li>
-				<a class="hover:text-blue-700 hover:border-b-2" href="/">Home</a>
+				<a
+					class="hover:text-blue-700 hover:border-b-2 md:p-2 p-4 md:text-lg text-xl"
+					href="/">Home</a
+				>
 			</li>
 			<li>
-				<a class="hover:text-blue-700 hover:border-b-2" href="/blog">Blog</a>
+				<a
+					class="hover:text-blue-700 hover:border-b-2 md:p-2 p-4 md:text-lg text-xl"
+					href="/blog">Blog</a
+				>
 			</li>
 			<li>
-				<a class="hover:text-blue-700 hover:border-b-2" href="/about">About</a>
+				<a
+					class="hover:text-blue-700 hover:border-b-2 md:p-2 p-4 md:text-lg text-xl"
+					href="/about">About</a
+				>
 			</li>
 		</ul>
 	</nav>
 </header>
+
+<script>
+	const button = document.querySelector("button");
+	const menuIcon = document.querySelector("button .ph-list");
+	const closeIcon = document.querySelector("button .ph-x");
+	const nav = document.querySelector("nav ul");
+
+	button?.addEventListener("click", () => {
+		menuIcon?.classList.toggle("hidden");
+		closeIcon?.classList.toggle("hidden");
+		nav?.classList.toggle("hidden");
+		nav?.classList.toggle("flex");
+		nav?.classList.toggle("h-dvh");
+	});
+</script>
