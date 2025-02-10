@@ -1,9 +1,9 @@
 ---
-title: "Hello World!"
-subtitle: "My first blog article on this site whoo!"
-date: "08-02-2025"
-author: "Samuel"
-slug: "hello-world"
+title: "The History of ECMAScript"
+subtitle: "From Mocha to Modern JavaScript"
+date: "2024-02-09"
+author: "Alex Deverson"
+slug: "history-of-ecmascript"
 ---
 
 ## The History of ECMAScript
