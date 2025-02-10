@@ -11,7 +11,7 @@ export const posts: PostData[] = postCollection.map((p: Post) => {
 	return {
 		title: p.data.title,
 		subtitle: p.data.subtitle,
-		date: new Date(p.data.date),
+		date: new Date(p.data.date).toISOString(),
 		author: p.data.author,
 		slug: toUrlFriendly(p.data.slug),
 	};
