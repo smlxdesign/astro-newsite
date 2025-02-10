@@ -1,5 +1,5 @@
 import { defineCollection, z } from "astro:content";
-import { glob, file } from "astro/loaders";
+import { glob } from "astro/loaders";
 
 const blog = defineCollection({
 	loader: glob({ pattern: "**/*.md", base: "src/content/blog" }),
@@ -8,7 +8,15 @@ const blog = defineCollection({
 		subtitle: z.string(),
 		date: z.string().date(),
 		author: z.string(),
-		slug: z.string().refine((str) => str.search(/[a-z0-9-]/gm) >= 0),
+		slug: z.string().refine(
+			(str) => {
+				console.log(str, str.search(/^[a-z0-9-]+$/));
+				return !!(str.search(/^[a-z0-9-]+$/) !== -1);
+			},
+			{
+				message: "Please only use letters, numbers, and hyphens",
+			},
+		),
 	}),
 });
 

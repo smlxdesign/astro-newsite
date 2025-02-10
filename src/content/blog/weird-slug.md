@@ -3,7 +3,7 @@ title: "Case & URL Test"
 subtitle: "What happens to slugs with spaces and UPPERCASE?"
 date: "2024-05-05"
 author: "Eve"
-slug: "Weird Slug TEST 123!@#"
+slug: "weird-slug-fixed"
 ---
 
 # URL Encoding Test
