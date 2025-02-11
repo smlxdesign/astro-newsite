@@ -11,33 +11,74 @@ import type PostData from "../interfaces/post-data";
 		subtitle="Here, you can read all my articles I've written. They are about all sorts of stuff, but mostly web dev!"
 	/>
 	<section class="px-side mt-8">
+		<div>
+			<label for="sort-by">Sort by:</label>
+			<select id="sort-by" name="sort-by">
+				<optgroup label="Title">
+					<option value="title-az">Title A-Z</option>
+					<option value="title-za">Title Z-A</option>
+				</optgroup>
+				<optgroup label="Author">
+					<option value="author-az">Author A-Z</option>
+					<option value="author-za">Author Z-A</option>
+				</optgroup>
+				<optgroup label="Date">
+					<option value="date-new">Newest first</option>
+					<option value="date-old">Oldest first</option>
+				</optgroup>
+			</select>
+		</div>
+		<!-- TODO: Sort the `ol` below using the variable `sortOption` -->
 		<ol class="flex flex-col gap-8">
 			{
-				postData.map((p: PostData) => (
-					<li class="flex flex-col flex-wrap items-start gap-4 rounded border border-dashed border-neutral-100 p-4 transition-all hover:rounded-xl hover:border-neutral-400 hover:transition-all md:flex-row md:items-end md:justify-between">
-						<div class="flex max-w-full flex-col gap-4 md:max-w-lg">
-							<div class="flex flex-col">
-								<h2 class="text-lg font-semibold">
-									{p.title || "Hmm, title seems to be missing"}
-								</h2>
-								<span class="text-sm">
-									Last updated{" "}
-									{new Date(p.date).toLocaleDateString("en-US", {
-										day: "numeric",
-										month: "long",
-										year: "numeric",
-									})}{" "}
-									by {p.author || "unknown"}
-								</span>
+				postData
+					.toSorted((a, b) => {
+						return a.author.localeCompare(b.author);
+					})
+					.map((p: PostData) => (
+						<li class="flex flex-col flex-wrap items-start gap-4 rounded border border-dashed border-neutral-100 p-4 transition-all hover:rounded-xl hover:border-neutral-400 hover:transition-all md:flex-row md:items-end md:justify-between">
+							<div class="flex max-w-full flex-col gap-4 md:max-w-lg">
+								<div class="flex flex-col">
+									<h2 class="text-lg font-semibold">
+										{p.title || "Hmm, title seems to be missing"}
+									</h2>
+									<span class="text-sm">
+										Last updated{" "}
+										{new Date(p.date).toLocaleDateString("en-US", {
+											day: "numeric",
+											month: "long",
+											year: "numeric",
+										})}{" "}
+										by {p.author || "unknown"}
+									</span>
+								</div>
+								<span class="truncate text-sm">{p.subtitle}</span>
 							</div>
-							<span class="truncate text-sm">{p.subtitle}</span>
-						</div>
-						<a class="button" href={`/blog/${p.slug}`}>
-							Read!
-						</a>
-					</li>
-				))
+							<a class="button" href={`/blog/${p.slug}`}>
+								Read!
+							</a>
+						</li>
+					))
 			}
 		</ol>
 	</section>
 </Layout>
+
+<script>
+	const sortSelectElement: HTMLSelectElement | null =
+		document.querySelector("#sort-by");
+
+	type SortOptions =
+		| "title-az"
+		| "title-za"
+		| "author-az"
+		| "author-za"
+		| "date-new"
+		| "date-old";
+
+	let sortOption: SortOptions = "title-az";
+
+	sortSelectElement?.addEventListener("change", () => {
+		sortOption = sortSelectElement.value as SortOptions;
+	});
+</script>
