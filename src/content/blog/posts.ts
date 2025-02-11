@@ -4,8 +4,6 @@ import type Post from "../../interfaces/post";
 import toUrlFriendly from "../../utils/to-url-friendly";
 
 const postCollection = await getCollection("blog");
-console.log(getCollection("blog"));
-console.log(postCollection);
 
 export const posts: PostData[] = postCollection.map((p: Post) => {
 	return {

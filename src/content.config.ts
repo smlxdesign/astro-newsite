@@ -10,7 +10,6 @@ const blog = defineCollection({
 		author: z.string(),
 		slug: z.string().refine(
 			(str) => {
-				console.log(str, str.search(/^[a-z0-9-]+$/));
 				return !!(str.search(/^[a-z0-9-]+$/) !== -1);
 			},
 			{
