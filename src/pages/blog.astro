@@ -1,6 +1,8 @@
 ---
 import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
+import postData from "../content/blog/posts";
+import type PostData from "../interfaces/post-data";
 ---
 
 <Layout>
@@ -8,4 +10,34 @@ import Layout from "../layouts/Layout.astro";
 		title="My Blog"
 		subtitle="Here, you can read all my articles I've written. They are about all sorts of stuff, but mostly web dev!"
 	/>
+	<section class="px-side mt-8">
+		<ol class="flex flex-col gap-8">
+			{
+				postData.map((p: PostData) => (
+					<li class="flex flex-col flex-wrap items-start gap-4 rounded border border-dashed border-neutral-100 p-4 transition-all hover:rounded-xl hover:border-neutral-400 hover:transition-all md:flex-row md:items-end md:justify-between">
+						<div class="flex max-w-full flex-col gap-4 md:max-w-lg">
+							<div class="flex flex-col">
+								<h2 class="text-lg font-semibold">
+									{p.title || "Hmm, title seems to be missing"}
+								</h2>
+								<span class="text-sm">
+									Last updated{" "}
+									{new Date(p.date).toLocaleDateString("en-US", {
+										day: "numeric",
+										month: "long",
+										year: "numeric",
+									})}{" "}
+									by {p.author || "unknown"}
+								</span>
+							</div>
+							<span class="truncate text-sm">{p.subtitle}</span>
+						</div>
+						<a class="button" href={`/blog/${p.slug}`}>
+							Read!
+						</a>
+					</li>
+				))
+			}
+		</ol>
+	</section>
 </Layout>

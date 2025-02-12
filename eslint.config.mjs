@@ -1,5 +1,7 @@
 import globals from "globals";
 import pluginJs from "@eslint/js";
+import typescriptParser from "@typescript-eslint/parser";
+import eslintPluginTypescript from "@typescript-eslint/eslint-plugin";
 import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginAstro from "eslint-plugin-astro";
 
@@ -15,6 +17,11 @@ export default [
 			".astro/",
 			".git/",
 		],
+	},
+	{
+		files: ["*.ts", "*.tsx"],
+		languageOptions: { parser: typescriptParser },
+		plugins: [eslintPluginTypescript],
 	},
 	{ languageOptions: { globals: { ...globals.browser, ...globals.node } } },
 	pluginJs.configs.recommended,

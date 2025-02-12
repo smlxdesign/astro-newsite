@@ -1,0 +1,57 @@
+---
+import Hero from "../../components/Hero.astro";
+import Layout from "../../layouts/Layout.astro";
+import { render, getEntry } from "astro:content";
+import postData from "../../content/blog/posts";
+import type Post from "../../interfaces/post";
+
+export function getStaticPaths() {
+	const posts: { slug: string }[] = postData.map((post: { slug: string }) => ({
+		slug: post.slug,
+	}));
+
+	return posts.map(({ slug }) => {
+		return {
+			params: {
+				slug,
+			},
+		};
+	});
+}
+
+const { slug } = Astro.params;
+
+// FIXME: Super duper broken shit - Change the id of the *actual* entry to be url friendly.
+const post: Post | undefined = await getEntry("blog", slug);
+const { Content } = await render(post!);
+---
+
+<Layout>
+	<Hero
+		title={post?.data.title || "Title seems to be missing 😕"}
+		subtitle={post?.data.subtitle || ""}
+	/>
+	<div class="px-side mt-4 flex flex-row gap-4">
+		<span
+			class="cursor-default rounded-full border border-neutral-400 px-4 py-2 text-sm text-neutral-700 transition-all hover:-translate-y-0.5 hover:scale-105 hover:-rotate-3 hover:bg-neutral-100 hover:text-neutral-900 hover:transition-all"
+			>Written by <strong class="font-semibold"
+				>{post?.data.author || "unknown"}</strong
+			></span
+		>
+		<span
+			class="cursor-default rounded-full border border-neutral-400 px-4 py-2 text-sm text-neutral-700 transition-all hover:translate-y-2 hover:scale-105 hover:rotate-9 hover:bg-neutral-100 hover:text-neutral-900 hover:transition-all"
+			>Updated <strong class="font-semibold"
+				>{
+					new Date(post!.data.date).toLocaleDateString("en-US", {
+						year: "numeric",
+						month: "long",
+						day: "numeric",
+					})
+				}</strong
+			></span
+		>
+	</div>
+	<article class="prose prose-neutral px-side mt-16 max-w-[80ch]">
+		<Content />
+	</article>
+</Layout>
