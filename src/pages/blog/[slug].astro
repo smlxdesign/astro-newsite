@@ -33,13 +33,13 @@ const { Content } = await render(post!);
 	/>
 	<div class="px-side mt-4 flex flex-row gap-4">
 		<span
-			class="cursor-default rounded-full border border-neutral-400 px-4 py-2 text-sm text-neutral-700 transition-all hover:-translate-y-0.5 hover:scale-105 hover:-rotate-3 hover:bg-neutral-100 hover:text-neutral-900 hover:transition-all"
+			class="cursor-default rounded-full border border-neutral-400 px-4 py-2 text-sm text-neutral-700 transition-all hover:-translate-y-0.5 hover:scale-105 hover:-rotate-3 hover:bg-neutral-100 hover:text-neutral-900 hover:transition-all dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
 			>Written by <strong class="font-semibold"
 				>{post?.data.author || "unknown"}</strong
 			></span
 		>
 		<span
-			class="cursor-default rounded-full border border-neutral-400 px-4 py-2 text-sm text-neutral-700 transition-all hover:translate-y-2 hover:scale-105 hover:rotate-9 hover:bg-neutral-100 hover:text-neutral-900 hover:transition-all"
+			class="cursor-default rounded-full border border-neutral-400 px-4 py-2 text-sm text-neutral-700 transition-all hover:translate-y-2 hover:scale-105 hover:rotate-9 hover:bg-neutral-100 hover:text-neutral-900 hover:transition-all dark:border-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
 			>Updated <strong class="font-semibold"
 				>{
 					new Date(post!.data.date).toLocaleDateString("en-US", {
@@ -51,7 +51,9 @@ const { Content } = await render(post!);
 			></span
 		>
 	</div>
-	<article class="prose prose-neutral px-side mt-16 max-w-[80ch]">
+	<article
+		class="prose dark:prose-invert prose-neutral px-side mt-16 max-w-[80ch]"
+	>
 		<Content />
 	</article>
 </Layout>

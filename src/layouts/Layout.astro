@@ -16,7 +16,9 @@ import Header from "../components/Header.astro";
 		<meta name="description" content="Welcome to the better side of the web." />
 		<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 	</head>
-	<body class="flex w-full flex-col text-neutral-800">
+	<body
+		class="flex w-full flex-col bg-white text-neutral-800 dark:bg-neutral-950 dark:text-neutral-200"
+	>
 		<Header />
 		<slot />
 	</body>
