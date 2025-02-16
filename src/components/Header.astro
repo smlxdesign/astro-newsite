@@ -37,10 +37,10 @@
 </header>
 
 <script>
-	const button = document.querySelector("button");
-	const menuIcon = document.querySelector("button .ph-list");
-	const closeIcon = document.querySelector("button .ph-x");
-	const nav = document.querySelector("nav ul");
+	const button = document.querySelector("nav button");
+	const menuIcon = document.querySelector("nav button .ph-list");
+	const closeIcon = document.querySelector("nav button .ph-x");
+	const nav = document.querySelector("nav");
 
 	button?.addEventListener("click", () => {
 		menuIcon?.classList.toggle("hidden");
@@ -48,6 +48,5 @@
 		nav?.classList.toggle("hidden");
 		nav?.classList.toggle("flex");
 		nav?.classList.toggle("h-screen");
-   nav?.classList.toggle("h-fit");
 	});
 </script>
