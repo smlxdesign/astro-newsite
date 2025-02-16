@@ -4,7 +4,7 @@
 	<a class="text-lg font-bold text-blue-700 dark:text-blue-500" href="/"
 		>SMLX Design</a
 	>
-	<nav class="flex flex-col items-end gap-4 h-fit">
+	<nav class="flex flex-col items-end gap-4">
 		<button class="md:hidden">
 			<i
 				class="ph ph-list ph-bold cursor-pointer text-2xl hover:text-blue-700 dark:hover:text-blue-500"
@@ -40,7 +40,7 @@
 	const button = document.querySelector("nav button");
 	const menuIcon = document.querySelector("nav button .ph-list");
 	const closeIcon = document.querySelector("nav button .ph-x");
-	const nav = document.querySelector("nav");
+	const nav = document.querySelector("nav ul");
 
 	button?.addEventListener("click", () => {
 		menuIcon?.classList.toggle("hidden");
