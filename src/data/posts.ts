@@ -1,7 +1,7 @@
 import { getCollection, type RenderedContent } from "astro:content";
-import type PostData from "../../interfaces/post-data";
-import type Post from "../../interfaces/post";
-import toUrlFriendly from "../../utils/to-url-friendly";
+import type PostData from "../interfaces/post-data";
+import type Post from "../interfaces/post";
+import toUrlFriendly from "../utils/to-url-friendly";
 
 const postCollection = await getCollection("blog");
 
